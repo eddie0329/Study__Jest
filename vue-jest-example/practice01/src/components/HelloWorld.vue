@@ -18,6 +18,7 @@
         <button @click="minus(first, second)">MINUS</button>
       </li>
     </ul>
+    <div>{{ reversedMsg }}</div>
   </div>
 </template>
 
@@ -31,6 +32,14 @@ export default {
       second: 2,
       total: 0
     };
+  },
+  computed: {
+    reversedMsg: function() {
+      return this.msg
+        .split("")
+        .reverse()
+        .join("");
+    }
   },
   methods: {
     plus(first, second) {

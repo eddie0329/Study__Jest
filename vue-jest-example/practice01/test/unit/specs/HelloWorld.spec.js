@@ -1,13 +1,14 @@
 import Vue from "vue";
 import HelloWorld from "@/components/HelloWorld";
 
-let Constructor, vm, first, second;
+let Constructor, vm, first, second, msg;
 
 beforeEach(() => {
   Constructor = Vue.extend(HelloWorld);
   vm = new Constructor().$mount();
   first = vm._data.first;
   second = vm._data.second;
+  msg = vm._data.msg;
 });
 
 describe("HelloWorld.vue", () => {
@@ -22,6 +23,11 @@ describe("HelloWorld.vue", () => {
       first = 10;
       second = 20;
       expect(vm.plus(first, second)).toBe(30);
+    });
+  });
+  describe("Computed Test", () => {
+    it("reversedMsg", () => {
+      expect(vm.reversedMsg).toBe("tseT tinU");
     });
   });
 });
